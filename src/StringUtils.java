@@ -16,6 +16,7 @@
 
 import java.security.InvalidParameterException;
 
+
 /*
  * Small class to practice writing JUnit tests 
  * Author: Renata Rand McFadden
@@ -28,7 +29,7 @@ public class StringUtils {
 
 	// constructor
 	// assigns parameter value to myStr attribute
-	// throws NullPointerException if parameter is null or empty string
+	// throws NullPointerException if parameter is null or empty
 	public StringUtils(String s)
 	{
 		if (s == null || s.equals(""))
@@ -74,6 +75,11 @@ public class StringUtils {
 	public String convertToUpperCase() 
 	{
 		String newStr = "";
+                
+                if (myStr.contentEquals(null)){
+                
+                throw new NullPointerException("Parameter cannot be null");
+                }
 		for (int i=1; i < myStr.length(); i++)
 		{
 			char ch = myStr.charAt(i);
