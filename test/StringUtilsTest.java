@@ -19,7 +19,7 @@ public class StringUtilsTest {
     String expResult;
      
      
-    // test that the StringUtils(String s) constructor initializes myStr to the correct value 
+    // test that the StringUtils(String s) constructor initializes myStr to the correct value (value passed)
      @Test //Test 1-- Passed 
     public void  TestStringUtilsConstructor1_MyStr_Initialization() {
          StringUtils Utils = new StringUtils("test");
@@ -108,7 +108,7 @@ public class StringUtilsTest {
      */
     @Test//Test 8
     public void testGetMyStr() {
-         StringUtils Utils = new StringUtils("test");
+        StringUtils Utils = new StringUtils("test");
         String expResult = "test";
         String result;
         result = Utils.getMyStr();
@@ -117,7 +117,7 @@ public class StringUtilsTest {
     }
 
     /**
-     * Test if endsWithChar  returns false when myStr does not end with the character passed 
+     * Test if endsWithChar()  returns false when myStr does not end with the character passed 
      */
     
     @Test//Test 9
@@ -142,7 +142,7 @@ public class StringUtilsTest {
         boolean result = Utils.endsWithChar(ch);
         System.out.println(result);
         assertEquals(true, result);
-        // TODO review the generated test code and remove the default call to fail.
+       
         
     
     }
@@ -156,22 +156,22 @@ public class StringUtilsTest {
    
     
    /**
-     * Test if convertToUpperCase method returns myStr in uppercase when a valid argument is passed 
+     * Test if convertToUpperCase method returns the same value as myStr but in uppercase letters  when a valid argument is passed 
      */
-    @Test//Test 11-- Failed 4 try to use contentEquals(String s) method with null parameter throws and exception
+    @Test//Test 11-- Failed 4 : String returned is missing the first 
     public void testConvertToUpperCaseReturn() {
         StringUtils Utils = new StringUtils("test");
         expResult ="TEST";
         String result =Utils.convertToUpperCase();
         assertEquals(expResult ,result);
-        // TODO review the generated test code and remove the default call to fail.
+       
      
     }
 
      /**
-     * Test if convertToUpperCase method returns updates the value of myStr to uppercase when a valid argument is passed 
+     * Test if convertToUpperCase method updates the value of myStr to uppercase when a valid argument is passed 
      */
-    @Test//Test 11-- Failed 4 try to use contentEquals(String s) method with null parameter throws and exception
+    @Test//Test 12-- Failed 5 : did not update value of myStr
     public void testConvertToUpperCaseMyStr() {
         StringUtils Utils = new StringUtils("test");
         expResult ="TEST";
@@ -190,7 +190,7 @@ public class StringUtilsTest {
          /**
      * Test if returnCharAt method returns the right character when it is passed a valid argument
      */
-    @Test//Test 12 --passed
+    @Test//Test 13 --passed
     public void testReturnCharAtwValid() {
         
         StringUtils Utils = new StringUtils("test");
@@ -208,8 +208,8 @@ public class StringUtilsTest {
     
     
     
-    
-    //Test 13 --Failed 5 threw NullPointerException instead of Index out of bound 
+    //Test that method throws an IndexOutOfBoundsException when the index passed is greater than myStr.length()-1
+    //Test 14 --Failed 6 threw NullPointerException instead of Index out of bounds Exception
   @Test(expected=IndexOutOfBoundsException.class)
     public void testReturnCharAtUpperBound() {
         
@@ -221,8 +221,8 @@ public class StringUtilsTest {
     
     }
     
-    
-    //Test 14--Failed 6 threw Null Pointer exception instead of index out of bound
+    //Test if ReturnCharAt() throws indexoutofboundsexception when the index is less than 0
+    //Test 15--Failed 7 threw Null Pointer exception instead of index out of bound
       @Test(expected=IndexOutOfBoundsException.class)
     public void testReturnCharAtLowerBound() {
         
@@ -236,8 +236,8 @@ public class StringUtilsTest {
     
     /**
      * Test if updateToConcat method, of class StringUtil throws InvalidParameterException
-     */ // Test 15-- Failed 7 threw Null Pointer exception instead of InvalidParameter Exception
-    @Test(expected=InvalidParameterException.class)// Test 15
+     */ // Test 16-- Failed 8 threw Null Pointer exception instead of InvalidParameter Exception
+    @Test(expected=InvalidParameterException.class)// Test 16
     public void testUpdateToConcatwNull() {
        
         String value = null;
@@ -249,9 +249,9 @@ public class StringUtilsTest {
     
     
     /**
-     * Test if updateToConcat method throw InvalidParamaterException when string passed is empty
+     * Test if updateToConcat method throws InvalidParamaterException when string passed is empty
      */
-     @Test(expected=InvalidParameterException.class)// Test 16--Failed 8 threw Null Pointer exception instead of InvalidParameter Exception
+     @Test(expected=InvalidParameterException.class)// Test 17--Failed 9 threw Null Pointer exception instead of InvalidParameter Exception
     public void testUpdateToConcatwEmpty() {
       
         String value = "";
@@ -263,7 +263,7 @@ public class StringUtilsTest {
      /**
      * Test if updateToConcat method, of class StringUtils works under normal conditions and returns expected value
      */
-    @Test//Test 17
+    @Test//Test 18
     public void testUpdateToConcatReturn() {
        
         String value = "hello";
@@ -279,7 +279,7 @@ public class StringUtilsTest {
      /**
      * Test if updateToConcat method updates the value of myStr
      */
-    @Test//Test 18
+    @Test//Test 19
     public void testUpdateToConcatmyStr() {
        
         String value = "hello";

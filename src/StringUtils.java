@@ -75,11 +75,6 @@ public class StringUtils {
 	public String convertToUpperCase() 
 	{
 		String newStr = "";
-                
-                if (myStr.contentEquals(null)){
-                
-                throw new NullPointerException("Parameter cannot be null");
-                }
 		for (int i=1; i < myStr.length(); i++)
 		{
 			char ch = myStr.charAt(i);
